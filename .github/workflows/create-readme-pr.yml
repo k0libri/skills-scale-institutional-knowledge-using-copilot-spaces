@@ -49,7 +49,7 @@ README
           token: ${{ secrets.GITHUB_TOKEN }}
           commit-message: "docs: add brief project-management overview README in docs/"
           branch: feature/add-process-readme
-          title: 'docs: add OctoAcme project-management overview README'
+          title: "docs: add OctoAcme project-management overview README"
           body: |
             Add docs/README.md with a concise overview of OctoAcme project management processes.
 
