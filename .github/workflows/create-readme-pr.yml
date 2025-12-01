@@ -16,17 +16,17 @@ jobs:
       - name: Create docs/README.md
         run: |
           mkdir -p docs
-          cat > docs/README.md <<'README'
+          cat > docs/README.md <<'EOF'
 # OctoAcme — Project Management Overview
 
 This repository contains OctoAcme's project management process documents and templates used to plan, execute, and improve cross-functional work. OctoAcme runs a lightweight, iterative lifecycle: Initiation (one-pager, stakeholder alignment, decision gate), Planning (kickoff, prioritized backlog, estimates, Definition of Done), Execution (boards, PR workflow, CI), Release (pre-release checks, deployment checklist, rollback plan), and Close/Retrospective (action items and follow-up). Key artifacts include the Project One-pager, roadmap and release plan, backlog with acceptance criteria, a risk register, and retrospective notes.
 
-Workflows center on a prioritized backlog and a visible project board with columns like Backlog → Ready → In Progress → In Review → QA → Done, and a disciplined pull request flow: small PRs, linked issues and acceptance criteria, automated CI and security scans, and required approvals. Planning focuses on shippable increments, capacity-aware pulls, and explicit acceptance criteria. Releases follow a checklist-driven approach with staging smoke tests, automated pipelines where possible, post-deploy verifications, and documented rollback/playbooks.
+Workflows center on a prioritized backlog and a visible project board with columns like Backlog -> Ready -> In Progress -> In Review -> QA -> Done, and a disciplined pull request flow: small PRs, linked issues and acceptance criteria, automated CI and security scans, and required approvals. Planning focuses on shippable increments, capacity-aware pulls, and explicit acceptance criteria. Releases follow a checklist-driven approach with staging smoke tests, automated pipelines where possible, post-deploy verifications, and documented rollback/playbooks.
 
 Roles and communication are explicit: Product Managers own outcomes and success metrics; Project Managers coordinate delivery, risks, and stakeholder communications; Developers implement and maintain tests and docs; QA validates acceptance. Regular cadence includes daily standups, weekly delivery syncs, PM+PdM alignment, and monthly stakeholder updates. Communication uses a single source-of-truth (project README or release doc), weekly status templates, and defined escalation paths for blockers and security incidents.
 
 Quality assurance is integrated into development: unit and integration tests, end-to-end smoke tests for critical flows, CI security scanning, and manual QA where needed. CI gates and PR conventions enforce test and lint runs before review; deployment checklists and rollback procedures reduce release risk. Continuous improvement is driven by timeboxed retrospectives that produce a small number of prioritized action items tracked back into the backlog.
-README
+EOF
 
       - name: Commit & push branch
         env:
@@ -55,5 +55,4 @@ README
 
             Closes #3
           base: main
-          reviewers: |
-            k0libri
+          reviewers: k0libri
