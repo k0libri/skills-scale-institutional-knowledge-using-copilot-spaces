@@ -34,7 +34,11 @@ README
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git checkout -b feature/add-process-readme || git checkout feature/add-process-readme
+          if git rev-parse --verify feature/add-process-readme >/dev/null 2>&1; then
+            git checkout feature/add-process-readme
+          else
+            git checkout -b feature/add-process-readme
+          fi
           git add docs/README.md
           git commit -m "docs: add brief project-management overview README in docs/" || echo "No changes to commit"
           git push --set-upstream origin feature/add-process-readme
@@ -51,4 +55,5 @@ README
 
             Closes #3
           base: main
-          reviewers: k0libri
+          reviewers: |
+            k0libri
